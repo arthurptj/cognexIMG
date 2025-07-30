@@ -19,6 +19,7 @@ namespace Fhcmi.Automation.CognexWinform.net48
         public Form1()
         {
             InitializeComponent();
+            EnableControls(false);
         }
 
         private void Demo_Load(object sender, EventArgs e)
@@ -49,6 +50,7 @@ namespace Fhcmi.Automation.CognexWinform.net48
             CogStringCollection AvailableVideoFormats = myFrameGrabber.AvailableVideoFormats;
             myFifo = myFrameGrabber.CreateAcqFifo(AvailableVideoFormats[0], CogAcqFifoPixelFormatConstants.Format8Grey,0,false);
             SetExposure(100);
+            
         }
 
         private ICogImage TakePic()
@@ -67,8 +69,9 @@ namespace Fhcmi.Automation.CognexWinform.net48
         private void btConnect_Click(object sender, EventArgs e)
         {
             InitCamera();
-            lbStatus.Text = myFrameGrabber.Name;
+            lbStatus.Text = myFrameGrabber.SerialNumber;
             InputExposure.Value = (decimal)myFifo.OwnedExposureParams.Exposure;
+            EnableControls(true);
         }
 
         private void Trigger_Click(object sender, EventArgs e)
@@ -80,6 +83,13 @@ namespace Fhcmi.Automation.CognexWinform.net48
         private void InputExposure_ValueChanged(object sender, EventArgs e)
         {
             SetExposure((int)InputExposure.Value);
+        }
+
+        private void EnableControls(bool isConnect)
+        {
+            btConnect.Enabled = !isConnect;
+            Trigger.Enabled = isConnect;
+            InputExposure.Enabled = isConnect;
         }
     }
 }
