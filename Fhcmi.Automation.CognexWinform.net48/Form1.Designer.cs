@@ -38,6 +38,7 @@
             this.btConnect = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cogDisplay1 = new Cognex.VisionPro.Display.CogDisplay();
+            this.btStream = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InputExposure)).BeginInit();
@@ -58,7 +59,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 450F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
             this.tableLayoutPanel1.TabIndex = 0;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // tableLayoutPanel2
             // 
@@ -69,25 +69,26 @@
             this.tableLayoutPanel2.Controls.Add(this.lbStatus, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.btConnect, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.btStream, 0, 5);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 5;
+            this.tableLayoutPanel2.RowCount = 6;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(94, 444);
             this.tableLayoutPanel2.TabIndex = 0;
-            this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
             // 
             // Trigger
             // 
             this.Trigger.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Trigger.Location = new System.Drawing.Point(3, 153);
             this.Trigger.Name = "Trigger";
-            this.Trigger.Size = new System.Drawing.Size(88, 288);
+            this.Trigger.Size = new System.Drawing.Size(88, 44);
             this.Trigger.TabIndex = 6;
             this.Trigger.Text = "Trigger";
             this.Trigger.UseVisualStyleBackColor = true;
@@ -153,6 +154,17 @@
             this.cogDisplay1.Size = new System.Drawing.Size(694, 444);
             this.cogDisplay1.TabIndex = 1;
             // 
+            // btStream
+            // 
+            this.btStream.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btStream.Location = new System.Drawing.Point(3, 203);
+            this.btStream.Name = "btStream";
+            this.btStream.Size = new System.Drawing.Size(88, 238);
+            this.btStream.TabIndex = 7;
+            this.btStream.Text = "Stream";
+            this.btStream.UseVisualStyleBackColor = true;
+            this.btStream.Click += new System.EventHandler(this.btStream_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -162,7 +174,6 @@
             this.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Form1";
             this.Text = "Demo";
-            this.Load += new System.EventHandler(this.Demo_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
@@ -182,6 +193,7 @@
         private System.Windows.Forms.NumericUpDown InputExposure;
         private System.Windows.Forms.Label label1;
         private Cognex.VisionPro.Display.CogDisplay cogDisplay1;
+        private System.Windows.Forms.Button btStream;
     }
 }
 

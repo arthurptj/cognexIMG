@@ -22,26 +22,6 @@ namespace Fhcmi.Automation.CognexWinform.net48
             EnableControls(false);
         }
 
-        private void Demo_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void InputBrightness_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void InitCamera()
         {
             myFrameGrabbers = new CogFrameGrabbers();
@@ -90,6 +70,12 @@ namespace Fhcmi.Automation.CognexWinform.net48
             btConnect.Enabled = !isConnect;
             Trigger.Enabled = isConnect;
             InputExposure.Enabled = isConnect;
+            btStream.Enabled = isConnect;
+        }
+
+        private void btStream_Click(object sender, EventArgs e)
+        {
+            cogDisplay1.StartLiveDisplay(myFifo, false);
         }
     }
 }
