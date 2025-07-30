@@ -1,0 +1,9 @@
+﻿<Application x:Class="Fhcmi.Automation.Cognex_Test.net48.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Fhcmi.Automation.Cognex_Test.net48"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
