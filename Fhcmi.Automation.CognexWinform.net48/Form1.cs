@@ -57,8 +57,8 @@ namespace Fhcmi.Automation.CognexWinform.net48
 
         private void Trigger_Click(object sender, EventArgs e)
         {
-            cogDisplay1.Image = TakePic();
-            cogDisplay1.Fit();
+            //cogDisplay1.Image = TakePic();
+            //cogDisplay1.Fit();
         }
 
         private void InputExposure_ValueChanged(object sender, EventArgs e)
@@ -85,7 +85,7 @@ namespace Fhcmi.Automation.CognexWinform.net48
             try
             {
                 // Stop any existing live display first
-                cogDisplay1.StopLiveDisplay();
+                //cogDisplay1.StopLiveDisplay();
 
                 // Configure for free-run mode (continuous acquisition)
                 myFifo.OwnedTriggerParams.TriggerEnabled = false;
@@ -103,8 +103,8 @@ namespace Fhcmi.Automation.CognexWinform.net48
                 myFifo.StartAcquire();
 
                 // Start live display with the fifo
-                cogDisplay1.StartLiveDisplay(myFifo, true);
-                cogDisplay1.Fit();
+                //cogDisplay1.StartLiveDisplay(myFifo, true);
+                //cogDisplay1.Fit();
             }
             catch (Exception ex)
             {
@@ -116,7 +116,7 @@ namespace Fhcmi.Automation.CognexWinform.net48
             try
             {
                 // Stop live display first
-                cogDisplay1.StopLiveDisplay();
+                //cogDisplay1.StopLiveDisplay();
 
                 // Disconnect the frame grabber
                 if (myFrameGrabber != null)
