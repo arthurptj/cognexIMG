@@ -29,7 +29,7 @@ namespace Fhcmi.Automation.CognexWinform.net48
 
             CogStringCollection AvailableVideoFormats = myFrameGrabber.AvailableVideoFormats;
             myFifo = myFrameGrabber.CreateAcqFifo(AvailableVideoFormats[0], CogAcqFifoPixelFormatConstants.Format8Grey,0,false);
-            SetExposure(100);
+            SetExposure(10);
             
         }
 
@@ -37,6 +37,7 @@ namespace Fhcmi.Automation.CognexWinform.net48
         {
             ICogImage image = null;
             int trignum;
+            trignum = 1;
             image = myFifo.Acquire(out trignum);
             return image;
         }
@@ -76,6 +77,14 @@ namespace Fhcmi.Automation.CognexWinform.net48
         private void btStream_Click(object sender, EventArgs e)
         {
             cogDisplay1.StartLiveDisplay(myFifo, false);
+
+        }
+
+        private void btDisconnect_Click(object sender, EventArgs e)
+        {
+            cogDisplay1.StopLiveDisplay();
+            myFrameGrabber.Disconnect(true);
+
         }
     }
 }

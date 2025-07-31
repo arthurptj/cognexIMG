@@ -32,16 +32,24 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.btDisconnect = new System.Windows.Forms.Button();
             this.Trigger = new System.Windows.Forms.Button();
             this.InputExposure = new System.Windows.Forms.NumericUpDown();
             this.lbStatus = new System.Windows.Forms.Label();
             this.btConnect = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.cogDisplay1 = new Cognex.VisionPro.Display.CogDisplay();
             this.btStream = new System.Windows.Forms.Button();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.cogDisplay3 = new Cognex.VisionPro.Display.CogDisplay();
+            this.cogDisplay2 = new Cognex.VisionPro.Display.CogDisplay();
+            this.cogDisplay1 = new Cognex.VisionPro.Display.CogDisplay();
+            this.domainUpDown1 = new System.Windows.Forms.DomainUpDown();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InputExposure)).BeginInit();
+            this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cogDisplay3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cogDisplay2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cogDisplay1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,19 +59,20 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.cogDisplay1, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 450F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1161F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(784, 1161);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.btDisconnect, 0, 6);
             this.tableLayoutPanel2.Controls.Add(this.Trigger, 0, 4);
             this.tableLayoutPanel2.Controls.Add(this.InputExposure, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.lbStatus, 0, 0);
@@ -73,15 +82,27 @@
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 6;
+            this.tableLayoutPanel2.RowCount = 8;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(94, 444);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(94, 1155);
             this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // btDisconnect
+            // 
+            this.btDisconnect.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btDisconnect.Location = new System.Drawing.Point(3, 253);
+            this.btDisconnect.Name = "btDisconnect";
+            this.btDisconnect.Size = new System.Drawing.Size(88, 44);
+            this.btDisconnect.TabIndex = 8;
+            this.btDisconnect.Text = "Disconnect";
+            this.btDisconnect.UseVisualStyleBackColor = true;
             // 
             // Trigger
             // 
@@ -136,6 +157,70 @@
             this.label1.Text = "Brightness";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btStream
+            // 
+            this.btStream.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btStream.Location = new System.Drawing.Point(3, 203);
+            this.btStream.Name = "btStream";
+            this.btStream.Size = new System.Drawing.Size(88, 44);
+            this.btStream.TabIndex = 7;
+            this.btStream.Text = "Stream";
+            this.btStream.UseVisualStyleBackColor = true;
+            this.btStream.Click += new System.EventHandler(this.btStream_Click);
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.cogDisplay3, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.cogDisplay2, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.cogDisplay1, 0, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(103, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33533F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33233F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33233F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(678, 1155);
+            this.tableLayoutPanel3.TabIndex = 1;
+            // 
+            // cogDisplay3
+            // 
+            this.cogDisplay3.ColorMapLowerClipColor = System.Drawing.Color.Black;
+            this.cogDisplay3.ColorMapLowerRoiLimit = 0D;
+            this.cogDisplay3.ColorMapPredefined = Cognex.VisionPro.Display.CogDisplayColorMapPredefinedConstants.None;
+            this.cogDisplay3.ColorMapUpperClipColor = System.Drawing.Color.Black;
+            this.cogDisplay3.ColorMapUpperRoiLimit = 1D;
+            this.cogDisplay3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cogDisplay3.DoubleTapZoomCycleLength = 2;
+            this.cogDisplay3.DoubleTapZoomSensitivity = 2.5D;
+            this.cogDisplay3.Location = new System.Drawing.Point(3, 772);
+            this.cogDisplay3.MouseWheelMode = Cognex.VisionPro.Display.CogDisplayMouseWheelModeConstants.Zoom1;
+            this.cogDisplay3.MouseWheelSensitivity = 1D;
+            this.cogDisplay3.Name = "cogDisplay3";
+            this.cogDisplay3.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("cogDisplay3.OcxState")));
+            this.cogDisplay3.Size = new System.Drawing.Size(672, 380);
+            this.cogDisplay3.TabIndex = 2;
+            // 
+            // cogDisplay2
+            // 
+            this.cogDisplay2.ColorMapLowerClipColor = System.Drawing.Color.Black;
+            this.cogDisplay2.ColorMapLowerRoiLimit = 0D;
+            this.cogDisplay2.ColorMapPredefined = Cognex.VisionPro.Display.CogDisplayColorMapPredefinedConstants.None;
+            this.cogDisplay2.ColorMapUpperClipColor = System.Drawing.Color.Black;
+            this.cogDisplay2.ColorMapUpperRoiLimit = 1D;
+            this.cogDisplay2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cogDisplay2.DoubleTapZoomCycleLength = 2;
+            this.cogDisplay2.DoubleTapZoomSensitivity = 2.5D;
+            this.cogDisplay2.Location = new System.Drawing.Point(3, 388);
+            this.cogDisplay2.MouseWheelMode = Cognex.VisionPro.Display.CogDisplayMouseWheelModeConstants.Zoom1;
+            this.cogDisplay2.MouseWheelSensitivity = 1D;
+            this.cogDisplay2.Name = "cogDisplay2";
+            this.cogDisplay2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("cogDisplay2.OcxState")));
+            this.cogDisplay2.Size = new System.Drawing.Size(672, 378);
+            this.cogDisplay2.TabIndex = 1;
+            // 
             // cogDisplay1
             // 
             this.cogDisplay1.ColorMapLowerClipColor = System.Drawing.Color.Black;
@@ -146,30 +231,28 @@
             this.cogDisplay1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cogDisplay1.DoubleTapZoomCycleLength = 2;
             this.cogDisplay1.DoubleTapZoomSensitivity = 2.5D;
-            this.cogDisplay1.Location = new System.Drawing.Point(103, 3);
+            this.cogDisplay1.Location = new System.Drawing.Point(3, 3);
             this.cogDisplay1.MouseWheelMode = Cognex.VisionPro.Display.CogDisplayMouseWheelModeConstants.Zoom1;
             this.cogDisplay1.MouseWheelSensitivity = 1D;
             this.cogDisplay1.Name = "cogDisplay1";
             this.cogDisplay1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("cogDisplay1.OcxState")));
-            this.cogDisplay1.Size = new System.Drawing.Size(694, 444);
-            this.cogDisplay1.TabIndex = 1;
+            this.cogDisplay1.Size = new System.Drawing.Size(672, 379);
+            this.cogDisplay1.TabIndex = 0;
             // 
-            // btStream
+            // domainUpDown1
             // 
-            this.btStream.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btStream.Location = new System.Drawing.Point(3, 203);
-            this.btStream.Name = "btStream";
-            this.btStream.Size = new System.Drawing.Size(88, 238);
-            this.btStream.TabIndex = 7;
-            this.btStream.Text = "Stream";
-            this.btStream.UseVisualStyleBackColor = true;
-            this.btStream.Click += new System.EventHandler(this.btStream_Click);
+            this.domainUpDown1.Location = new System.Drawing.Point(49, 0);
+            this.domainUpDown1.Name = "domainUpDown1";
+            this.domainUpDown1.Size = new System.Drawing.Size(120, 20);
+            this.domainUpDown1.TabIndex = 1;
+            this.domainUpDown1.Text = "domainUpDown1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(784, 1161);
+            this.Controls.Add(this.domainUpDown1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Form1";
@@ -178,6 +261,9 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InputExposure)).EndInit();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cogDisplay3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cogDisplay2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cogDisplay1)).EndInit();
             this.ResumeLayout(false);
 
@@ -186,14 +272,19 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private Cognex.VisionPro.Display.CogDisplay cogDisplay3;
+        private Cognex.VisionPro.Display.CogDisplay cogDisplay2;
+        private Cognex.VisionPro.Display.CogDisplay cogDisplay1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label lbStatus;
-        private System.Windows.Forms.Button btConnect;
         private System.Windows.Forms.Button Trigger;
         private System.Windows.Forms.NumericUpDown InputExposure;
+        private System.Windows.Forms.Label lbStatus;
+        private System.Windows.Forms.Button btConnect;
         private System.Windows.Forms.Label label1;
-        private Cognex.VisionPro.Display.CogDisplay cogDisplay1;
         private System.Windows.Forms.Button btStream;
+        private System.Windows.Forms.Button btDisconnect;
+        private System.Windows.Forms.DomainUpDown domainUpDown1;
     }
 }
 
