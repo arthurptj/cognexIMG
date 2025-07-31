@@ -15,7 +15,7 @@ namespace Fhcmi.Automation.CognexWinform.net48
         CogFrameGrabbers myFrameGrabbers;
         ICogFrameGrabber myFrameGrabber;       
         ICogAcqFifo myFifo;
-
+        
         public Form1()
         {
             InitializeComponent();
@@ -28,7 +28,7 @@ namespace Fhcmi.Automation.CognexWinform.net48
             myFrameGrabber = myFrameGrabbers[0];
 
             CogStringCollection AvailableVideoFormats = myFrameGrabber.AvailableVideoFormats;
-            myFifo = myFrameGrabber.CreateAcqFifo(AvailableVideoFormats[0], CogAcqFifoPixelFormatConstants.Format8Grey,0,false);
+            myFifo = myFrameGrabber.CreateAcqFifo(AvailableVideoFormats[1], CogAcqFifoPixelFormatConstants.Format8Grey,0,false);
             SetExposure(10);
             
         }
@@ -84,27 +84,53 @@ namespace Fhcmi.Automation.CognexWinform.net48
 
             try
             {
-                // Make sure trigger is disabled (free-run mode)
+                // Stop any existing live display first
+                cogDisplay1.StopLiveDisplay();
+
+                // Configure for free-run mode (continuous acquisition)
                 myFifo.OwnedTriggerParams.TriggerEnabled = false;
 
-                // Optional: Set exposure again
+                // Set trigger model to free run
+                myFifo.OwnedTriggerParams.TriggerModel = CogAcqTriggerModelConstants.Manual;
+
+                // Optional: Set frame rate if supported
+                // myFifo.OwnedTimingParams.PeriodNS = 33333333; // ~30 FPS
+
+                // Set exposure
                 SetExposure((int)InputExposure.Value);
 
-                // Start live display
+                // Start the acquisition fifo
+                myFifo.StartAcquire();
+
+                // Start live display with the fifo
                 cogDisplay1.StartLiveDisplay(myFifo, false);
-                cogDisplay1.Fit(); // Ensure image is visible
+                cogDisplay1.Fit();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Failed to start live feed: " + ex.Message);
             }
         }
-
         private void btDisconnect_Click(object sender, EventArgs e)
         {
-            cogDisplay1.StopLiveDisplay();
-            myFrameGrabber.Disconnect(true);
+            try
+            {
+                // Stop live display first
+                cogDisplay1.StopLiveDisplay();
 
+                // Disconnect the frame grabber
+                if (myFrameGrabber != null)
+                {
+                    myFrameGrabber.Disconnect(true);
+                }
+
+                lbStatus.Text = "Disconnected";
+                EnableControls(false);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error during disconnect: " + ex.Message);
+            }
         }
     }
 }
