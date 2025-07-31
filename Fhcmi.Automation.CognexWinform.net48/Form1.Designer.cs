@@ -41,15 +41,15 @@
             this.btStream = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.cogDisplay3 = new Cognex.VisionPro.Display.CogDisplay();
-            this.cogDisplay2 = new Cognex.VisionPro.Display.CogDisplay();
             this.cogDisplay1 = new Cognex.VisionPro.Display.CogDisplay();
+            this.cogAcqFifoEditV21 = new Cognex.VisionPro.CogAcqFifoEditV2();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InputExposure)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cogDisplay3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cogDisplay2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cogDisplay1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cogAcqFifoEditV21)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -172,8 +172,8 @@
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Controls.Add(this.cogDisplay3, 0, 2);
-            this.tableLayoutPanel3.Controls.Add(this.cogDisplay2, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.cogDisplay1, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.cogAcqFifoEditV21, 0, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(103, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -202,24 +202,6 @@
             this.cogDisplay3.Size = new System.Drawing.Size(672, 380);
             this.cogDisplay3.TabIndex = 2;
             // 
-            // cogDisplay2
-            // 
-            this.cogDisplay2.ColorMapLowerClipColor = System.Drawing.Color.Black;
-            this.cogDisplay2.ColorMapLowerRoiLimit = 0D;
-            this.cogDisplay2.ColorMapPredefined = Cognex.VisionPro.Display.CogDisplayColorMapPredefinedConstants.None;
-            this.cogDisplay2.ColorMapUpperClipColor = System.Drawing.Color.Black;
-            this.cogDisplay2.ColorMapUpperRoiLimit = 1D;
-            this.cogDisplay2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cogDisplay2.DoubleTapZoomCycleLength = 2;
-            this.cogDisplay2.DoubleTapZoomSensitivity = 2.5D;
-            this.cogDisplay2.Location = new System.Drawing.Point(3, 388);
-            this.cogDisplay2.MouseWheelMode = Cognex.VisionPro.Display.CogDisplayMouseWheelModeConstants.Zoom1;
-            this.cogDisplay2.MouseWheelSensitivity = 1D;
-            this.cogDisplay2.Name = "cogDisplay2";
-            this.cogDisplay2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("cogDisplay2.OcxState")));
-            this.cogDisplay2.Size = new System.Drawing.Size(672, 378);
-            this.cogDisplay2.TabIndex = 1;
-            // 
             // cogDisplay1
             // 
             this.cogDisplay1.ColorMapLowerClipColor = System.Drawing.Color.Black;
@@ -238,6 +220,15 @@
             this.cogDisplay1.Size = new System.Drawing.Size(672, 379);
             this.cogDisplay1.TabIndex = 0;
             // 
+            // cogAcqFifoEditV21
+            // 
+            this.cogAcqFifoEditV21.Location = new System.Drawing.Point(3, 388);
+            this.cogAcqFifoEditV21.MinimumSize = new System.Drawing.Size(489, 0);
+            this.cogAcqFifoEditV21.Name = "cogAcqFifoEditV21";
+            this.cogAcqFifoEditV21.Size = new System.Drawing.Size(672, 378);
+            this.cogAcqFifoEditV21.SuspendElectricRuns = false;
+            this.cogAcqFifoEditV21.TabIndex = 3;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -253,8 +244,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.InputExposure)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cogDisplay3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cogDisplay2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cogDisplay1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cogAcqFifoEditV21)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -264,7 +255,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private Cognex.VisionPro.Display.CogDisplay cogDisplay3;
-        private Cognex.VisionPro.Display.CogDisplay cogDisplay2;
         private Cognex.VisionPro.Display.CogDisplay cogDisplay1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button Trigger;
@@ -274,6 +264,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btStream;
         private System.Windows.Forms.Button btDisconnect;
+        private Cognex.VisionPro.CogAcqFifoEditV2 cogAcqFifoEditV21;
     }
 }
 
