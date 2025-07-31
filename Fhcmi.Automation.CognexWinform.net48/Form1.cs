@@ -13,7 +13,7 @@ namespace Fhcmi.Automation.CognexWinform.net48
     public partial class Form1 : Form
     {
         CogFrameGrabbers myFrameGrabbers;
-        ICogFrameGrabber myFrameGrabber;
+        ICogFrameGrabber myFrameGrabber;       
         ICogAcqFifo myFifo;
 
         public Form1()
@@ -76,8 +76,28 @@ namespace Fhcmi.Automation.CognexWinform.net48
 
         private void btStream_Click(object sender, EventArgs e)
         {
-            cogDisplay1.StartLiveDisplay(myFifo, false);
+            if (myFifo == null)
+            {
+                MessageBox.Show("Camera not initialized.");
+                return;
+            }
 
+            try
+            {
+                // Make sure trigger is disabled (free-run mode)
+                myFifo.OwnedTriggerParams.TriggerEnabled = false;
+
+                // Optional: Set exposure again
+                SetExposure((int)InputExposure.Value);
+
+                // Start live display
+                cogDisplay1.StartLiveDisplay(myFifo, false);
+                cogDisplay1.Fit(); // Ensure image is visible
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to start live feed: " + ex.Message);
+            }
         }
 
         private void btDisconnect_Click(object sender, EventArgs e)

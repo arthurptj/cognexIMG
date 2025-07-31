@@ -43,7 +43,6 @@
             this.cogDisplay3 = new Cognex.VisionPro.Display.CogDisplay();
             this.cogDisplay2 = new Cognex.VisionPro.Display.CogDisplay();
             this.cogDisplay1 = new Cognex.VisionPro.Display.CogDisplay();
-            this.domainUpDown1 = new System.Windows.Forms.DomainUpDown();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InputExposure)).BeginInit();
@@ -239,20 +238,11 @@
             this.cogDisplay1.Size = new System.Drawing.Size(672, 379);
             this.cogDisplay1.TabIndex = 0;
             // 
-            // domainUpDown1
-            // 
-            this.domainUpDown1.Location = new System.Drawing.Point(49, 0);
-            this.domainUpDown1.Name = "domainUpDown1";
-            this.domainUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.domainUpDown1.TabIndex = 1;
-            this.domainUpDown1.Text = "domainUpDown1";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 1161);
-            this.Controls.Add(this.domainUpDown1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Form1";
@@ -284,7 +274,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btStream;
         private System.Windows.Forms.Button btDisconnect;
-        private System.Windows.Forms.DomainUpDown domainUpDown1;
     }
 }
 
