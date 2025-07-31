@@ -15,7 +15,10 @@ namespace Fhcmi.Automation.CognexWinform.net48
         CogFrameGrabbers myFrameGrabbers;
         ICogFrameGrabber myFrameGrabber;       
         ICogAcqFifo myFifo;
-        
+
+        private Timer streamTimer;
+        private bool isStreaming = false;
+
         public Form1()
         {
             InitializeComponent();
@@ -84,33 +87,49 @@ namespace Fhcmi.Automation.CognexWinform.net48
 
             try
             {
-                // Stop any existing live display first
-                cogDisplay1.StopLiveDisplay();
-
-                // Configure for free-run mode (continuous acquisition)
+                // Configure for free-run mode
                 myFifo.OwnedTriggerParams.TriggerEnabled = false;
-
-                // Set trigger model to free run
-                myFifo.OwnedTriggerParams.TriggerModel = CogAcqTriggerModelConstants.Manual;
-
-                // Optional: Set frame rate if supported
-                // myFifo.OwnedTimingParams.PeriodNS = 33333333; // ~30 FPS
-
-                // Set exposure
                 SetExposure((int)InputExposure.Value);
 
-                // Start the acquisition fifo
-                myFifo.StartAcquire();
+                // Create and start timer for continuous acquisition
+                if (streamTimer == null)
+                {
+                    streamTimer = new Timer();
+                    streamTimer.Interval = 33; // ~30 FPS
+                    streamTimer.Tick += StreamTimer_Tick;
+                }
 
-                // Start live display with the fifo
-                cogDisplay1.StartLiveDisplay(myFifo, false);
-                cogDisplay1.Fit();
+                isStreaming = true;
+                streamTimer.Start();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Failed to start live feed: " + ex.Message);
             }
         }
+
+        private void StreamTimer_Tick(object sender, EventArgs e)
+        {
+            if (isStreaming && myFifo != null)
+            {
+                try
+                {
+                    ICogImage image = TakePic();
+                    if (image != null)
+                    {
+                        cogDisplay1.Image = image;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Handle acquisition errors
+                    streamTimer.Stop();
+                    isStreaming = false;
+                    MessageBox.Show("Streaming error: " + ex.Message);
+                }
+            }
+        }
+
         private void btDisconnect_Click(object sender, EventArgs e)
         {
             try
