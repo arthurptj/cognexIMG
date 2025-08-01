@@ -59,6 +59,9 @@
     <Reference Include="Cognex.Vision.Core.Net">
       <HintPath>..\..\..\..\..\..\Program Files\Cognex\VisionPro\bin\Cognex.Vision.Core.Net.dll</HintPath>
     </Reference>
+    <Reference Include="Cognex.Vision.Display.Net">
+      <HintPath>..\..\..\..\..\..\Program Files\Cognex\VisionPro\bin\Cognex.Vision.Display.Net.dll</HintPath>
+    </Reference>
     <Reference Include="Cognex.Vision.Startup.Net">
       <HintPath>..\..\..\..\..\..\Program Files\Cognex\VisionPro\bin\Cognex.Vision.Startup.Net.dll</HintPath>
     </Reference>

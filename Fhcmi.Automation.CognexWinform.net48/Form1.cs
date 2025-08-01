@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Cognex.VisionPro;
+using Cognex.VisionPro.Display;
+
 namespace Fhcmi.Automation.CognexWinform.net48
 {
     public partial class Form1 : Form
@@ -54,6 +56,12 @@ namespace Fhcmi.Automation.CognexWinform.net48
             SetExposure(10);
 
             cogDisplay1.StartLiveDisplay(myFifo);
+
+            //configure cogdisplay
+            cogDisplay1.Fit(true);
+            cogDisplay1.MouseWheelMode = CogDisplayMouseWheelModeConstants.None;
+            cogDisplay1.MouseMode = CogDisplayMouseModeConstants.Pointer;
+            cogDisplay1.Dock = DockStyle.Fill;
 
         }
 
