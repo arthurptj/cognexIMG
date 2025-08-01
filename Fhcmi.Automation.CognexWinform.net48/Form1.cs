@@ -28,7 +28,7 @@ namespace Fhcmi.Automation.CognexWinform.net48
         #region Properties
 
         public string TargetCameraDeviceUserID { get; set; }
-
+        
         #endregion
 
 
