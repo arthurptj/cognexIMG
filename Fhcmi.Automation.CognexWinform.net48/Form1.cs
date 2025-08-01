@@ -24,9 +24,19 @@ namespace Fhcmi.Automation.CognexWinform.net48
         public Form1()
         {
             InitializeComponent();
+            InitDisplay();
             InitCamera();
         }
-
+        private void InitDisplay()
+        {
+            //configure cogdisplay
+            cogDisplay1.AutoFit = true;
+            cogDisplay1.MouseWheelMode = CogDisplayMouseWheelModeConstants.None;
+            cogDisplay1.MouseMode = CogDisplayMouseModeConstants.Pointer;
+            cogDisplay1.Dock = DockStyle.Fill;
+            cogDisplay1.HorizontalScrollBar = false;
+            cogDisplay1.VerticalScrollBar = false;
+        }
         private void InitCamera()
         {
             myFrameGrabbers = new CogFrameGrabbers();
@@ -42,7 +52,7 @@ namespace Fhcmi.Automation.CognexWinform.net48
             {
                 ICogFrameGrabber grabber = myFrameGrabbers[i];
 
-                if (grabber.SerialNumber == FrontCamSerial)
+                if (grabber.SerialNumber == EpoxyCamSerial)
                 {
                     myFrameGrabber = grabber;
                     break;
@@ -56,12 +66,6 @@ namespace Fhcmi.Automation.CognexWinform.net48
             SetExposure(10);
 
             cogDisplay1.StartLiveDisplay(myFifo);
-
-            //configure cogdisplay
-            cogDisplay1.Fit(true);
-            cogDisplay1.MouseWheelMode = CogDisplayMouseWheelModeConstants.None;
-            cogDisplay1.MouseMode = CogDisplayMouseModeConstants.Pointer;
-            cogDisplay1.Dock = DockStyle.Fill;
 
         }
 
