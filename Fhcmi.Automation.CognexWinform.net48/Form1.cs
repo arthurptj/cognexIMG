@@ -24,9 +24,8 @@ namespace Fhcmi.Automation.CognexWinform.net48
 
         #region Properties
 
-        public string TargetCameraDeviceUserID { get; set; }
-        public double Exposure { get; set; }
-
+        public string TargetCameraDeviceUserID { get; set; } = "EpoxyCAM";
+        public double Exposure { get; set; } = 0.5;
         
         #endregion
 
@@ -36,14 +35,13 @@ namespace Fhcmi.Automation.CognexWinform.net48
         {
             InitializeComponent();
             InitDisplay();
-            TargetCameraDeviceUserID = "EpoxyCAM";
-            Exposure = 0.5;
             InitCamera();
         }
 
         #endregion
 
         #region Methods
+
 
         private void InitDisplay() //configure cogdisplay
         {
