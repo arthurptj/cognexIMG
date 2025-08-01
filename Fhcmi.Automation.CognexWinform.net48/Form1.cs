@@ -14,12 +14,25 @@ namespace Fhcmi.Automation.CognexWinform.net48
 {
     public partial class Form1 : Form
     {
+        #region Fields
+
         CogFrameGrabbers myFrameGrabbers;
-        ICogFrameGrabber myFrameGrabber;
+        ICogFrameGrabber myFrameGrabber = null;
         ICogAcqFifo myFifo;
         string FrontCamSerial = "H2856761";
         string BackCamSerial = "H2650398";
         string EpoxyCamSerial = "H2827415";
+
+        #endregion
+
+        #region Properties
+
+        public string TargetCameraDeviceUserID { get; set; }
+
+        #endregion
+
+
+        #region Constructors
 
         public Form1()
         {
@@ -27,6 +40,11 @@ namespace Fhcmi.Automation.CognexWinform.net48
             InitDisplay();
             InitCamera();
         }
+
+        #endregion
+
+        #region Methods
+
         private void InitDisplay()
         {
             //configure cogdisplay
@@ -39,31 +57,43 @@ namespace Fhcmi.Automation.CognexWinform.net48
         }
         private void InitCamera()
         {
-            myFrameGrabbers = new CogFrameGrabbers();
-
-            if (myFrameGrabbers.Count < 3)
+            using (var fgs = new CogFrameGrabbers())
             {
-                MessageBox.Show("Can't find all three cameras", "Camera Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Application.Exit();
-                return;
-            }
-
-            for (int i = 0; i <= myFrameGrabbers.Count; i++)
-            {
-                ICogFrameGrabber grabber = myFrameGrabbers[i];
-
-                if (grabber.SerialNumber == EpoxyCamSerial)
+                foreach(ICogFrameGrabber fg in fgs)
                 {
-                    myFrameGrabber = grabber;
-                    break;
+                    var access = fg.OwnedGigEAccess;
+                    string deviceUserID = access.GetFeature("DeviceUserID");
+                    MessageBox.Show($"Found GigE camera id={deviceUserID}");
+                    if (myFrameGrabber == null)
+                        myFrameGrabber = fg;
                 }
-
             }
+
+            //myFrameGrabbers = new CogFrameGrabbers();
+
+            //if (myFrameGrabbers.Count < 3)
+            //{
+            //    MessageBox.Show("Can't find all three cameras", "Camera Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    Application.Exit();
+            //    return;
+            //}
+
+            //for (int i = 0; i <= myFrameGrabbers.Count; i++)
+            //{
+            //    ICogFrameGrabber grabber = myFrameGrabbers[i];
+
+            //    if (grabber.SerialNumber == EpoxyCamSerial)
+            //    {
+            //        myFrameGrabber = grabber;
+            //        break;
+            //    }
+
+            //}
 
             CogStringCollection AvailableVideoFormats = myFrameGrabber.AvailableVideoFormats;
 
             myFifo = myFrameGrabber.CreateAcqFifo(AvailableVideoFormats[0], CogAcqFifoPixelFormatConstants.Format8Grey, 0, false);
-            SetExposure(10);
+            SetExposure(1);
 
             cogDisplay1.StartLiveDisplay(myFifo);
 
@@ -74,6 +104,8 @@ namespace Fhcmi.Automation.CognexWinform.net48
             myFifo.OwnedExposureParams.Exposure = val;
 
         }
+
+        #endregion
     }
 }
 
