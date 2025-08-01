@@ -16,21 +16,19 @@ namespace Fhcmi.Automation.CognexWinform.net48
     {
         #region Fields
 
-        CogFrameGrabbers myFrameGrabbers;
         ICogFrameGrabber myFrameGrabber = null;
         ICogAcqFifo myFifo;
-        string FrontCamSerial = "H2856761";
-        string BackCamSerial = "H2650398";
-        string EpoxyCamSerial = "H2827415";
+
 
         #endregion
 
         #region Properties
 
         public string TargetCameraDeviceUserID { get; set; }
+        public double Exposure { get; set; }
+
         
         #endregion
-
 
         #region Constructors
 
@@ -38,6 +36,8 @@ namespace Fhcmi.Automation.CognexWinform.net48
         {
             InitializeComponent();
             InitDisplay();
+            TargetCameraDeviceUserID = "EpoxyCAM";
+            Exposure = 0.5;
             InitCamera();
         }
 
@@ -45,9 +45,8 @@ namespace Fhcmi.Automation.CognexWinform.net48
 
         #region Methods
 
-        private void InitDisplay()
+        private void InitDisplay() //configure cogdisplay
         {
-            //configure cogdisplay
             cogDisplay1.AutoFit = true;
             cogDisplay1.MouseWheelMode = CogDisplayMouseWheelModeConstants.None;
             cogDisplay1.MouseMode = CogDisplayMouseModeConstants.Pointer;
@@ -55,7 +54,7 @@ namespace Fhcmi.Automation.CognexWinform.net48
             cogDisplay1.HorizontalScrollBar = false;
             cogDisplay1.VerticalScrollBar = false;
         }
-        private void InitCamera()
+        private void InitCamera() //find the correct camera and intialize fifo
         {
             using (var fgs = new CogFrameGrabbers())
             {
@@ -63,43 +62,31 @@ namespace Fhcmi.Automation.CognexWinform.net48
                 {
                     var access = fg.OwnedGigEAccess;
                     string deviceUserID = access.GetFeature("DeviceUserID");
-                    MessageBox.Show($"Found GigE camera id={deviceUserID}");
-                    if (myFrameGrabber == null)
-                        myFrameGrabber = fg;
+                    //MessageBox.Show($"Found GigE camera id={deviceUserID}");
+                    if (deviceUserID == TargetCameraDeviceUserID)
+                    {
+                        if (myFrameGrabber == null)
+                        {
+                            myFrameGrabber = fg;
+                        }
+                        break;
+                            
+                    }
+
                 }
             }
 
-            //myFrameGrabbers = new CogFrameGrabbers();
-
-            //if (myFrameGrabbers.Count < 3)
-            //{
-            //    MessageBox.Show("Can't find all three cameras", "Camera Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    Application.Exit();
-            //    return;
-            //}
-
-            //for (int i = 0; i <= myFrameGrabbers.Count; i++)
-            //{
-            //    ICogFrameGrabber grabber = myFrameGrabbers[i];
-
-            //    if (grabber.SerialNumber == EpoxyCamSerial)
-            //    {
-            //        myFrameGrabber = grabber;
-            //        break;
-            //    }
-
-            //}
 
             CogStringCollection AvailableVideoFormats = myFrameGrabber.AvailableVideoFormats;
 
             myFifo = myFrameGrabber.CreateAcqFifo(AvailableVideoFormats[0], CogAcqFifoPixelFormatConstants.Format8Grey, 0, false);
-            SetExposure(1);
+            SetExposure(Exposure);
 
             cogDisplay1.StartLiveDisplay(myFifo);
 
         }
 
-        private void SetExposure(int val)
+        private void SetExposure(double val) // set exposure of the camera
         {
             myFifo.OwnedExposureParams.Exposure = val;
 
