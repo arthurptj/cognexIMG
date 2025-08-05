@@ -1,6 +1,6 @@
-﻿namespace Fhcmi.Automation.CognexWinform.net48
+﻿namespace Fhcmi.Automation.CognexWinform_LiveDisplay.net48
 {
-    partial class Form1
+    partial class LiveDisplay
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LiveDisplay));
             this.cogDisplay1 = new Cognex.VisionPro.Display.CogDisplay();
             ((System.ComponentModel.ISupportInitialize)(this.cogDisplay1)).BeginInit();
             this.SuspendLayout();

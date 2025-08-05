@@ -1,11 +1,10 @@
-﻿using Fhcmi.Automation.CognexWinform_LiveDisplay.net48;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Fhcmi.Automation.CognexWinform.net48
+namespace Fhcmi.Automation.CognexWinform_Editor.net48
 {
     static class Program
     {
@@ -17,7 +16,7 @@ namespace Fhcmi.Automation.CognexWinform.net48
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LiveDisplay());
+            Application.Run(new Form1());
         }
     }
 }

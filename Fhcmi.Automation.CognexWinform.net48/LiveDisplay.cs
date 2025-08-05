@@ -10,17 +10,17 @@ using System.Windows.Forms;
 using Cognex.VisionPro;
 using Cognex.VisionPro.Display;
 
-namespace Fhcmi.Automation.CognexWinform.net48
+namespace Fhcmi.Automation.CognexWinform_LiveDisplay.net48
 {
-    public partial class Form1 : Form
+    public partial class LiveDisplay : Form
     {
         #region Fields
 
         ICogFrameGrabber myFrameGrabber = null;
         ICogAcqFifo myFifo;
 
-
         #endregion
+
 
         #region Properties
 
@@ -31,7 +31,7 @@ namespace Fhcmi.Automation.CognexWinform.net48
 
         #region Constructors
 
-        public Form1()
+        public LiveDisplay()
         {
             InitializeComponent();
             InitDisplay();
@@ -89,7 +89,6 @@ namespace Fhcmi.Automation.CognexWinform.net48
             myFifo.OwnedExposureParams.Exposure = val;
 
         }
-
         #endregion
     }
 }
