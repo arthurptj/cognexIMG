@@ -21,7 +21,6 @@ namespace Fhcmi.Automation.CognexWinform_LiveDisplay.net48
 
         #endregion
 
-
         #region Properties
 
         public string TargetCameraDeviceUserID { get; set; } = "EpoxyCAM";
