@@ -1,6 +1,6 @@
-﻿namespace CognexWinform_Editor.net48
+﻿namespace Fhcmi.Automation.CognexWinform_Editor.net48
 {
-    partial class Editor
+    partial class CogEditor
     {
         /// <summary>
         /// Required designer variable.
@@ -41,7 +41,7 @@
             this.cogToolGroupEditV21.MinimumSize = new System.Drawing.Size(489, 0);
             this.cogToolGroupEditV21.Name = "cogToolGroupEditV21";
             this.cogToolGroupEditV21.ShowNodeToolTips = true;
-            this.cogToolGroupEditV21.Size = new System.Drawing.Size(984, 461);
+            this.cogToolGroupEditV21.Size = new System.Drawing.Size(984, 561);
             this.cogToolGroupEditV21.SuspendElectricRuns = false;
             this.cogToolGroupEditV21.TabIndex = 0;
             // 
@@ -49,7 +49,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 461);
+            this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.cogToolGroupEditV21);
             this.Name = "Form1";
             this.Text = "Form1";

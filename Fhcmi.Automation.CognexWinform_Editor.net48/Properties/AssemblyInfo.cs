@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Fhcmi.Automation.CognexWinform_Editor.net48")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Launches a fully featured Cognex Quick build")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Fhcmi")]
 [assembly: AssemblyProduct("Fhcmi.Automation.CognexWinform_Editor.net48")]
 [assembly: AssemblyCopyright("Copyright ©  2025")]
 [assembly: AssemblyTrademark("")]

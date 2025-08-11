@@ -5,9 +5,9 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{80A88E36-AB2C-4D17-9857-393A491ABFB4}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>Fhcmi.Automation.CognexWinform.net48</RootNamespace>
-    <AssemblyName>Fhcmi.Automation.CognexWinform.net48</AssemblyName>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Fhcmi.Automation.CognexWinform_LiveDipslay.net48</RootNamespace>
+    <AssemblyName>Fhcmi.Automation.CognexWinform_LiveDisplay.net48</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -51,6 +51,9 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Cognex.Rbbt.Net">
@@ -176,16 +179,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LiveDisplay.cs">
+    <Compile Include="CogLiveDisplay.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LiveDisplay.Designer.cs">
-      <DependentUpon>LiveDisplay.cs</DependentUpon>
+    <Compile Include="CogLiveDisplay.Designer.cs">
+      <DependentUpon>CogLiveDisplay.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="LiveDisplay.resx">
-      <DependentUpon>LiveDisplay.cs</DependentUpon>
+    <EmbeddedResource Include="CogLiveDisplay.resx">
+      <DependentUpon>CogLiveDisplay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -195,6 +198,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

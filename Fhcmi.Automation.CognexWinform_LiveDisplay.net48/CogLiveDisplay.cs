@@ -67,19 +67,26 @@ namespace Fhcmi.Automation.CognexWinform_LiveDisplay.net48
                             myFrameGrabber = fg;
                         }
                         break;
-                            
                     }
 
                 }
             }
 
+            try
+            {
+                CogStringCollection AvailableVideoFormats = myFrameGrabber.AvailableVideoFormats;
 
-            CogStringCollection AvailableVideoFormats = myFrameGrabber.AvailableVideoFormats;
+                myFifo = myFrameGrabber.CreateAcqFifo(AvailableVideoFormats[0], CogAcqFifoPixelFormatConstants.Format8Grey, 0, false);
+                SetExposure(Exposure);
 
-            myFifo = myFrameGrabber.CreateAcqFifo(AvailableVideoFormats[0], CogAcqFifoPixelFormatConstants.Format8Grey, 0, false);
-            SetExposure(Exposure);
+                cogDisplay1.StartLiveDisplay(myFifo);
+            }
 
-            cogDisplay1.StartLiveDisplay(myFifo);
+            catch(Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
 
         }
 
@@ -91,4 +98,3 @@ namespace Fhcmi.Automation.CognexWinform_LiveDisplay.net48
         #endregion
     }
 }
-

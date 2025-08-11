@@ -188,11 +188,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Fhcmi.Automation.CognexWinform.net48\Fhcmi.Automation.CognexWinform_LiveDisplay.net48.csproj">
-      <Project>{80a88e36-ab2c-4d17-9857-393a491abfb4}</Project>
-      <Name>Fhcmi.Automation.CognexWinform_LiveDisplay.net48</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

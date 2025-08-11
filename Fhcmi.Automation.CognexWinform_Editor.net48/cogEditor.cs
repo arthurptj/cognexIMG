@@ -8,12 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace Fhcmi.Automation.CognexWinform_Editor.net48
 {
-    public partial class Editor : Form
+    public partial class CogEditor : Form
     {
-        public Editor()
+        public CogEditor()
         {
             InitializeComponent();
         }

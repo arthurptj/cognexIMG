@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CognexWinform_Editor.net48")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Fhcmi.Automation.CognexWinform.net48")]
+[assembly: AssemblyDescription("Window display of selected camera")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("CognexWinform_Editor.net48")]
+[assembly: AssemblyCompany("Fhcmi")]
+[assembly: AssemblyProduct("Fhcmi.Automation.CognexWinform.net48")]
 [assembly: AssemblyCopyright("Copyright ©  2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("428732c3-9963-4ea5-9533-28e91e1a755f")]
+[assembly: Guid("80a88e36-ab2c-4d17-9857-393a491abfb4")]
 
 // Version information for an assembly consists of the following four values:
 //

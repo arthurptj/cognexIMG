@@ -16,7 +16,7 @@ namespace Fhcmi.Automation.CognexWinform_Editor.net48
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new CogEditor());
         }
     }
 }
