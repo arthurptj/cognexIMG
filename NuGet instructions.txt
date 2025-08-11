@@ -1,0 +1,1 @@
+nuget pack Fhcmi.Automation.CognexWinform_LiveDisplay.net48.csproj -Properties "Configuration=Release;Platform=x64;Version=1.0.1"

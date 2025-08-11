@@ -23,9 +23,6 @@ namespace Fhcmi.Automation.CognexWinform_LiveDisplay.net48
 
         #region Properties
 
-        public string TargetCameraDeviceUserID { get; set; } = "EpoxyCAM";
-        public double Exposure { get; set; } = 0.5;
-        
         #endregion
 
         #region Constructors
@@ -34,7 +31,6 @@ namespace Fhcmi.Automation.CognexWinform_LiveDisplay.net48
         {
             InitializeComponent();
             InitDisplay();
-            InitCamera();
         }
 
         #endregion
@@ -51,16 +47,17 @@ namespace Fhcmi.Automation.CognexWinform_LiveDisplay.net48
             cogDisplay1.HorizontalScrollBar = false;
             cogDisplay1.VerticalScrollBar = false;
         }
-        private void InitCamera() //find the correct camera and intialize fifo
+
+        public string InitCamera(string name, double exposure = 0.5) //find the correct camera and intialize fifo
         {
             using (var fgs = new CogFrameGrabbers())
             {
-                foreach(ICogFrameGrabber fg in fgs)
+                foreach (ICogFrameGrabber fg in fgs)
                 {
                     var access = fg.OwnedGigEAccess;
                     string deviceUserID = access.GetFeature("DeviceUserID");
                     //MessageBox.Show($"Found GigE camera id={deviceUserID}");
-                    if (deviceUserID == TargetCameraDeviceUserID)
+                    if (deviceUserID == name)
                     {
                         if (myFrameGrabber == null)
                         {
@@ -72,22 +69,16 @@ namespace Fhcmi.Automation.CognexWinform_LiveDisplay.net48
                 }
             }
 
-            try
-            {
-                CogStringCollection AvailableVideoFormats = myFrameGrabber.AvailableVideoFormats;
+            if (myFrameGrabber == null) return $"Unable to find camera '{name}'";
 
-                myFifo = myFrameGrabber.CreateAcqFifo(AvailableVideoFormats[0], CogAcqFifoPixelFormatConstants.Format8Grey, 0, false);
-                SetExposure(Exposure);
+            CogStringCollection AvailableVideoFormats = myFrameGrabber.AvailableVideoFormats;
 
-                cogDisplay1.StartLiveDisplay(myFifo);
-            }
+            myFifo = myFrameGrabber.CreateAcqFifo(AvailableVideoFormats[0], CogAcqFifoPixelFormatConstants.Format8Grey, 0, false);
+            SetExposure(exposure);
 
-            catch(Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            cogDisplay1.StartLiveDisplay(myFifo);
 
-
+            return "";
         }
 
         private void SetExposure(double val) // set exposure of the camera
@@ -95,6 +86,8 @@ namespace Fhcmi.Automation.CognexWinform_LiveDisplay.net48
             myFifo.OwnedExposureParams.Exposure = val;
 
         }
+        public CogDisplay Display => cogDisplay1;
+
         #endregion
     }
 }
