@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{80A88E36-AB2C-4D17-9857-393A491ABFB4}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Fhcmi.Automation.CognexWinform_LiveDipslay.net48</RootNamespace>
+    <RootNamespace>Fhcmi.Automation.CognexWinform_LiveDisplay.net48</RootNamespace>
     <AssemblyName>Fhcmi.Automation.CognexWinform_LiveDisplay.net48</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -180,12 +180,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CogLiveDisplay.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="CogLiveDisplay.Designer.cs">
       <DependentUpon>CogLiveDisplay.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CogLiveDisplay.resx">
       <DependentUpon>CogLiveDisplay.cs</DependentUpon>

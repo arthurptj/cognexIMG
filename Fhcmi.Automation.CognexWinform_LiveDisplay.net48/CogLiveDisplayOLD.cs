@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,19 +12,23 @@ using Cognex.VisionPro.Display;
 
 namespace Fhcmi.Automation.CognexWinform_LiveDisplay.net48
 {
-    public partial class CogLiveDisplay : UserControl
+    public partial class LiveDisplay : Form
     {
         #region Fields
+
         ICogFrameGrabber myFrameGrabber = null;
         ICogAcqFifo myFifo;
+
         #endregion
 
         #region Constructors
-        public CogLiveDisplay()
+
+        public LiveDisplay()
         {
             InitializeComponent();
             InitDisplay();
         }
+
         #endregion
 
         #region Methods

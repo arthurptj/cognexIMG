@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Fhcmi.Automation.CognexWinform_LiveDipslay.net48.Properties {
+namespace Fhcmi.Automation.CognexWinform_LiveDisplay.net48.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Fhcmi.Automation.CognexWinform_LiveDipslay.net48.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Fhcmi.Automation.CognexWinform_LiveDipslay.net48.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Fhcmi.Automation.CognexWinform_LiveDisplay.net48.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

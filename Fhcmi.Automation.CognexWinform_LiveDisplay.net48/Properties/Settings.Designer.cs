@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Fhcmi.Automation.CognexWinform_LiveDipslay.net48.Properties {
+namespace Fhcmi.Automation.CognexWinform_LiveDisplay.net48.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
