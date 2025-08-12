@@ -77,12 +77,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CogEditor.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="CogEditor.Designer.cs">
       <DependentUpon>CogEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CogEditor.resx">
       <DependentUpon>CogEditor.cs</DependentUpon>

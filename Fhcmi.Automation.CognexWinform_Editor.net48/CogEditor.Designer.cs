@@ -2,12 +2,12 @@
 {
     partial class CogEditor
     {
-        /// <summary>
+        /// <summary> 
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
+        /// <summary> 
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -20,10 +20,10 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Component Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
@@ -41,18 +41,17 @@
             this.cogToolGroupEditV21.MinimumSize = new System.Drawing.Size(489, 0);
             this.cogToolGroupEditV21.Name = "cogToolGroupEditV21";
             this.cogToolGroupEditV21.ShowNodeToolTips = true;
-            this.cogToolGroupEditV21.Size = new System.Drawing.Size(984, 561);
+            this.cogToolGroupEditV21.Size = new System.Drawing.Size(812, 497);
             this.cogToolGroupEditV21.SuspendElectricRuns = false;
             this.cogToolGroupEditV21.TabIndex = 0;
             // 
-            // Form1
+            // CogEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.cogToolGroupEditV21);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "CogEditor";
+            this.Size = new System.Drawing.Size(812, 497);
             ((System.ComponentModel.ISupportInitialize)(this.cogToolGroupEditV21)).EndInit();
             this.ResumeLayout(false);
 
@@ -63,4 +62,3 @@
         private Cognex.VisionPro.ToolGroup.CogToolGroupEditV2 cogToolGroupEditV21;
     }
 }
-
